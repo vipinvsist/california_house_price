@@ -1,0 +1,6 @@
+Flask
+Flask-API
+pandas
+matplotlib
+seaborn
+scikit-learn
