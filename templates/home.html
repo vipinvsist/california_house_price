@@ -1,3 +1,106 @@
-<h1>
-    Hello World 
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>House Price Prediction</h2>
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="MedInc">Median Income (MedInc):</label>
+                <input type="text" name="MedInc" required>
+            </div>
+            <div class="form-group">
+                <label for="HouseAge">House Age (HouseAge):</label>
+                <input type="text" name="HouseAge" required>
+            </div>
+            <div class="form-group">
+                <label for="AveRooms">Average Number of Rooms (AveRooms):</label>
+                <input type="text" name="AveRooms" required>
+            </div>
+            <div class="form-group">
+                <label for="AveBedrms">Average Number of Bedrooms (AveBedrms):</label>
+                <input type="text" name="AveBedrms" required>
+            </div>
+            <div class="form-group">
+                <label for="Population">Population:</label>
+                <input type="text" name="Population" required>
+            </div>
+            <div class="form-group">
+                <label for="AveOccup">Average Household Members (AveOccup):</label>
+                <input type="text" name="AveOccup" required>
+            </div>
+            <div class="form-group">
+                <label for="Latitude">Latitude:</label>
+                <input type="text" name="Latitude" required>
+            </div>
+            <div class="form-group">
+                <label for="Longitude">Longitude:</label>
+                <input type="text" name="Longitude" required>
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction_text %}
+        <div class="result">
+            <h3>{{ prediction_text }}</h3>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
